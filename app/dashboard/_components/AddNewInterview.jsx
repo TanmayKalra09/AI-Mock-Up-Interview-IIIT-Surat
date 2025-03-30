@@ -34,7 +34,7 @@ function AddNewInterview() {
     <div>
         <div className='bg-purple-50 p-10 border rounded-lg  hover:scale-105 hover:shadow cursor-pointer transition-all'
         onClick={()=>setOpenDialog(true)}>
-            <h2 className='font-bold text-lg text-center text-purple-700'>+ Add New</h2>
+            <h2 className='font-bold text-lg text-center text-purple-700'>+ Start your Mockup Interview</h2>
         </div>
         <Dialog open={openDialog}>
   <DialogContent className="bg-purple-100 max-w-xl">

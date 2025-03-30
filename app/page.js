@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Logo from "./_components/Logo";
 import { useRouter } from "next/navigation";
+import Footer from "./_components/Footer";
 
 export default function Home() {
   const router = useRouter();
@@ -68,7 +69,8 @@ export default function Home() {
           <Image src="/netflix_PNG22.png" alt="Netflix" width={50} height={50} />
           <Image src="/google-logo-on-transparent-white-background-free-vector-removebg-preview.png" alt="Google" width={50} height={50} />
         </div>
+        </div>
+    <Footer/>
       </div>
-    </div>
   );
 }
