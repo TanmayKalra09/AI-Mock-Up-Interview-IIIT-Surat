@@ -4,11 +4,14 @@ import { Button } from '@/components/ui/button';
 import { WebcamIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
+import { useRouter } from "next/navigation";
 
 
 function Interview({ params }) {
   const [interviewData, setInterviewData] = useState(null);
   const [webCamEnabled,setWebCamEnabled] = useState(false);
+  const router = useRouter();
+
 
   useEffect(() => {
     const storedData = localStorage.getItem(`interview-${params.interviewId}`);
@@ -18,15 +21,16 @@ function Interview({ params }) {
   }, [params.interviewId]);
 
   return (
-    <div style={{ backgroundImage: "url('72.webp')" }}>
+    <div >
       <div className="flex justify-between items-center p-1 shadow-md">
         <Logo />
-        <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer">
+        <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
+        onClick={() => router.push('/premium')}>
           Premium
         </button>
       </div>
       <div className='my-10 flex flex-col items-center'>
-        <h1 className='font-bold text-2xl mb-5 text-purple-700'>Let's Get Started</h1>
+        <h1 className='font-bold text-2xl mb-5 text-purple-700'>Let's Start Your Interview...</h1>
         <div className="flex flex-col items-center">
           {webCamEnabled ?  
             <Webcam 

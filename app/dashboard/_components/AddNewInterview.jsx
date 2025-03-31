@@ -65,7 +65,7 @@ function AddNewInterview() {
 
     return (
         <div>
-            <div className='bg-purple-50 p-10 border rounded-lg hover:scale-105 hover:shadow cursor-pointer transition-all'
+            <div className='bg-purple-50 p-10 w-max border rounded-lg hover:scale-105 hover:shadow cursor-pointer transition-all'
                 onClick={() => setOpenDialog(true)}>
                 <h2 className='font-bold text-lg text-center text-purple-700'>+ Start your Mock Interview</h2>
             </div>
