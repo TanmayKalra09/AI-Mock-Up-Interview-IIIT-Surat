@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-      serverComponentsExternalPackages: ["@clerk/nextjs"], // Ensures compatibility
-    },
-  };
-  
-  export default nextConfig;
+  // Remove Clerk configuration
+};
+
+export default nextConfig;
