@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div 
-      className="h-screen bg-cover bg-center flex flex-col relative" 
+      className="h-screen bg-cover bg-center flex flex-col relative overflow-hidden" 
       style={{ backgroundImage: "url('gradient-blur-pink-blue-abstract-background_53876-117324.jpg.avif')" }}
     >
       
@@ -26,6 +26,7 @@ export default function Home() {
           </Button> */}
           <Button 
             className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor: pointer" 
+            onClick={() => router.push('/premium')}
           >
             Premium
           </Button>
@@ -39,7 +40,7 @@ export default function Home() {
       </div>
 
       
-      <div className="flex-grow flex flex-col justify-center items-center px-6 mt-[-100px]">
+      <div className="flex-grow flex flex-col justify-center items-center px-6">
         <h1 className="text-6xl font-extrabold text-purple-600 drop-shadow-lg">
           Welcome to AI Mock Interview
         </h1>

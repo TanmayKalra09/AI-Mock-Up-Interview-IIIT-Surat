@@ -1,19 +1,22 @@
+"use client"
 import React from 'react'
 import AddNewInterview from './_components/AddNewInterview'
 import Logo from '../_components/Logo'
 import { Button } from '@/components/ui/button'
+import { useRouter } from "next/navigation";
 
 function page() {
+  const router = useRouter();
   return (
+  
     <div 
-      className="h-screen bg-cover bg-center flex flex-col relative" 
-      style={{ backgroundImage: "url('72.webp')" }}
     >
     <div className="h-screen flex flex-col">
       <div className="h-20 flex justify-between items-center shadow-md bg-white/90 px-6 z-10">
         <Logo />
         <Button 
           className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
+          onClick={() => router.push('/premium')}
         >
           Premium
         </Button>

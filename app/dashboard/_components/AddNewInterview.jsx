@@ -71,7 +71,7 @@ function AddNewInterview() {
             </div>
             
             <Dialog open={openDialog}>
-                <DialogContent className="bg-purple-100 max-w-xl">
+                <DialogContent className=" max-w-xl">
                     <DialogHeader>
                         <DialogTitle className="text-2xl text-purple-700">Tell us more about your Interview</DialogTitle>
                         <DialogDescription>
@@ -119,7 +119,7 @@ function AddNewInterview() {
                                         name="expectedSalary"
                                         value={formData.expectedSalary}
                                         onChange={handleChange}
-                                        placeholder="Expected Salary" 
+                                        placeholder="Expected Salary (Enter without commas)" 
                                         className="w-full mt-2 text-purple-600" 
                                         type="number"
                                     />

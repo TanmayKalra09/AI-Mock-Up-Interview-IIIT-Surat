@@ -18,7 +18,7 @@ function Interview({ params }) {
   }, [params.interviewId]);
 
   return (
-    <div>
+    <div style={{ backgroundImage: "url('72.webp')" }}>
       <div className="flex justify-between items-center p-1 shadow-md">
         <Logo />
         <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer">
