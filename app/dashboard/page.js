@@ -1,5 +1,5 @@
 import React from 'react'
-import AddNewInterview from './_components/AddNewInterview'
+import AddNewInterview from './components/AddNewInterview'
 import Logo from '../_components/Logo'
 import { Button } from '@/components/ui/button'
 

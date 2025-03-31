@@ -1,5 +1,8 @@
 "use client";
-
+import {
+  GoogleSignInButton,
+} from "@/components/ui/authButtons";
+import { useSession,signIn } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Logo from "./_components/Logo";
@@ -52,10 +55,8 @@ export default function Home() {
         </p>
 
       
-        <Button className="mt-8 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 text-lg rounded-lg shadow-lg">
-          Get Started
-        </Button>
-
+        <GoogleSignInButton />
+        
         
         <p className="text-lg text-black mt-12 font-semibold">
           Interview patterns also available for MAANG companies
