@@ -10,7 +10,7 @@ function page() {
   return (
     <div>
       <div className="h-screen flex flex-col">
-        <div className="h-20 flex justify-between items-center shadow-md bg-white/90 px-6 z-10">
+        <div className="h-20 flex justify-between items-center bg-white/90 px-6 z-10">
           <Logo />
           <Button 
             className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
@@ -29,9 +29,9 @@ function page() {
             </div>
           </div>
           <img 
-            src="/WhatsApp Image 2025-03-31 at 22.25.48.jpeg" 
+            src="/2456062 2.jpg" 
             alt="AI Mock Interview" 
-            className="w-1/2 h-auto object-cover my-5"
+            className="w-1/2 h-auto object-cover my-10 mt-[-50px] mr-10 flex justify-center"
           />
         </div>
       </div>

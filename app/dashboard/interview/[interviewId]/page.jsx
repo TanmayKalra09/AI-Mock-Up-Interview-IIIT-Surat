@@ -31,6 +31,7 @@ function Interview({ params }) {
       </div>
       <div className='my-10 flex flex-col items-center'>
         <h1 className='font-bold text-2xl mb-5 text-purple-700'>Let's Start Your Interview...</h1>
+        
         <div className="flex flex-col items-center">
           {webCamEnabled ?  
             <Webcam 
