@@ -11,7 +11,6 @@ function Premium() {
 
       <div className="h-20 flex justify-between items-center shadow-md bg-white px-6 z-10">
         <Logo />
-        <Button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg" onClick={() => router.push('/')}>Back to Home</Button>
       </div>
     
       <div className=' bg-gray-100 p-5'>

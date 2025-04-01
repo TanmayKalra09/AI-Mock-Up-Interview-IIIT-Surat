@@ -21,7 +21,7 @@ function Interview({ params }) {
   }, [params.interviewId]);
 
   return (
-    <div >
+    <div className="relative">
       <div className="flex justify-between items-center p-1 shadow-md">
         <Logo />
         <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
@@ -29,20 +29,28 @@ function Interview({ params }) {
           Premium
         </button>
       </div>
-      <div className='my-10 flex flex-col items-center'>
-        <h1 className='font-bold text-2xl mb-5 text-purple-700'>Let's Start Your Interview...</h1>
-        
-        <div className="flex flex-col items-center">
-          {webCamEnabled ?  
-            <Webcam 
-              onUserMedia={()=>setWebCamEnabled(true)}
-              onUserMediaError={()=>setWebCamEnabled(false)}
-              className="h-[300px] w-[300px] rounded-lg border"
-            />  
-            : 
-            <WebcamIcon className='h-[300px] w-[300px] p-10 bg-secondary rounded-lg border' />
-          }
-          <Button className="mt-4 p-2 bg-purple-600  hover:bg-purple-700" onClick={()=>setWebCamEnabled(true)}>Enable Webcam and Microphone</Button>
+      <div className='my-10 flex items-center justify-center gap-40'>
+        <img src="/5148270_2701776 2.jpg" alt="Interview Illustration" className="w-1/3 max-w-sm object-contain ml-[-550px]" />
+        <div className='flex flex-col items-center'>
+          <h1 className='font-bold text-2xl mb-5 text-purple-700'>Let's Start Your Interview...</h1>
+          
+          <div className="flex flex-col items-center">
+            {webCamEnabled ?  
+              <Webcam 
+              mirrored={true}
+                onUserMedia={()=>setWebCamEnabled(true)}
+                onUserMediaError={()=>setWebCamEnabled(false)}
+                className="h-[300px] w-[300px] rounded-lg border"
+              />  
+              : 
+              <WebcamIcon className='h-[300px] w-[300px] p-10 bg-secondary rounded-lg border' />
+            }
+            <Button className="mt-4 p-2 bg-purple-600  hover:bg-purple-700" onClick={()=>setWebCamEnabled(true)}>Enable Webcam and Microphone</Button>
+          </div>
+          <div className='absolute bottom-5 right-5'>
+            <p className="text-gray-600 text-sm mb-2">Whenever you are ready, just press the button to start the interview.</p>
+            <Button className="bg-purple-700 hover:bg-purple-800 transform translate-x-35" onClick={() => router.push('/dashboard/interview/'+params.interviewId+'/start')}>Start Interview</Button>
+          </div>
         </div>
       </div>
 
