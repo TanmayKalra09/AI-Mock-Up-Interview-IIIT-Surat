@@ -14,6 +14,7 @@ function Interview({ params }) {
 
 
   useEffect(() => {
+    console.log(params.interviewId)
     const storedData = localStorage.getItem(`interview-${params.interviewId}`);
     if (storedData) {
       setInterviewData(JSON.parse(storedData));
