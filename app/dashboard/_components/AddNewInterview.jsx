@@ -93,7 +93,7 @@ function AddNewInterview() {
 
   return (
     <div>
-        <div className='bg-purple-50 p-10 border rounded-lg  hover:scale-105 hover:shadow cursor-pointer transition-all'
+        <div className='bg-purple-50 p-10 border rounded-lg hover:scale-105 hover:shadow cursor-pointer transition-all'
         onClick={()=>setOpenDialog(true)}>
             <h2 className='font-bold text-lg text-center text-purple-700'>+ Start your Mockup Interview</h2>
         </div>
@@ -165,9 +165,9 @@ function AddNewInterview() {
             </div>
             
         </div>
-        <div className="items-top flex space-x-2  text-purple-700">
-      <Checkbox id="terms1" />
-      <div className="grid gap-1.5 leading-none  text-purple-700">
+        <div className="items-top flex space-x-2 text-purple-700">
+      <Checkbox id="terms1"/>
+      <div className="grid gap-1.5 leading-none text-purple-700">
         <label
           htmlFor="terms1"
           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
@@ -176,7 +176,7 @@ function AddNewInterview() {
         </label>
       </div>
     </div>
-        <div className='flex gap-5 justify-end  text-purple-700'>
+        <div className='flex gap-5 justify-end text-purple-700'>
             <Button type="button" onClick={()=>setOpenDialog(false) }>Cancel</Button>
             <Button type="submit" disabled={loading==true} >
               {loading?

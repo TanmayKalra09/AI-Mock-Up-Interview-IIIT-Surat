@@ -25,7 +25,7 @@ function page() {
             <h1 className='text-purple-600'>Create and Start your AI Mockup Interview</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-5">
-              <AddNewInterview />
+              <AddNewInterview/>
             </div>
           </div>
           <img 
