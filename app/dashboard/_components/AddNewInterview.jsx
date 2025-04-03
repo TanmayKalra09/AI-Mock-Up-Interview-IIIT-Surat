@@ -98,7 +98,7 @@ function AddNewInterview() {
             <h2 className='font-bold text-lg text-center text-purple-700'>+ Start your Mockup Interview</h2>
         </div>
         <Dialog open={openDialog}>
-  <DialogContent className="bg-purple-100 max-w-xl">
+  <DialogContent className="bg-white max-w-xl">
     <DialogHeader>
       <DialogTitle className="text-2xl text-purple-700">Tell us more about your Interview</DialogTitle>
       <DialogDescription>

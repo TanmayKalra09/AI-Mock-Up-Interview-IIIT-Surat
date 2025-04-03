@@ -59,9 +59,9 @@ function Interview({ params }) {
         <h1 className="text-2xl font-bold text-purple-700 mb-4">Interview Details</h1>
         {interviewData ? (
           <div className="space-y-3">
-            <p><strong>Job Position:</strong> {interviewData.jobPosition}</p>
-            <p><strong>Job Description:</strong> {interviewData.jobDescription}</p>
-            <p><strong>Experience:</strong> {interviewData.experience} years</p>
+            <p><strong>Job Position:</strong> {jobPosition}</p>
+            <p><strong>Job Description:</strong> {jobDesc}</p>
+            <p><strong>Experience:</strong> {jobExperience} years</p>
             <p><strong>Expected Salary:</strong> ₹{interviewData.expectedSalary} per annum</p>
             <p><strong>Company:</strong> {interviewData.company}</p>
           </div>
