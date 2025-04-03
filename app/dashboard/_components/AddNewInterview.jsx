@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/navigation';
+import { toast } from "sonner"
+
 import {
     Dialog,
     DialogContent,
@@ -93,12 +95,12 @@ function AddNewInterview() {
 
   return (
     <div>
-        <div className='bg-purple-50 p-10 border rounded-lg hover:scale-105 hover:shadow cursor-pointer transition-all'
+        <div className='bg-purple-50 p-10 border w-max rounded-lg hover:scale-105 hover:shadow cursor-pointer transition-all'
         onClick={()=>setOpenDialog(true)}>
             <h2 className='font-bold text-lg text-center text-purple-700'>+ Start your Mockup Interview</h2>
         </div>
         <Dialog open={openDialog}>
-  <DialogContent className="bg-white max-w-xl">
+  <DialogContent className="bg-white w-full">
     <DialogHeader>
       <DialogTitle className="text-2xl text-purple-700">Tell us more about your Interview</DialogTitle>
       <DialogDescription>
@@ -107,18 +109,18 @@ function AddNewInterview() {
         <div>
             <h2 className='font-bold text-xl  text-purple-600'>Add Details about your Job</h2>
             <div className='mt-7 my-2'>
-                <label className='font-bold  text-purple-700'>Job Position</label>
+                <label className='font-bold  text-purple-700'>Job Role</label>
                 <Input placeholder="Ex: Full Stack Developer " className="mt-1  text-purple-600" required 
                   onChange = {(e)=>setJobPosition(e.target.value)}
                 />
             </div>
-            <div className='mt-7 my-2'>
-                <label className='font-bold  text-purple-700' >Job Description or Your Tech Stack (In Short)</label>
-                <Textarea placeholder="Ex: React, Nextjs, MongoDB etc" className="mt-1 text-purple-600" required 
+            <div className='mt-2 my-2'>
+                <label className='font-bold  text-purple-700' >Tech Stack (In Short)</label>
+                <Textarea placeholder="Ex: React, Nextjs, MongoDB etc (Mention Atleast 3 of your Skills)" className="mt-1 text-purple-600" required 
                   onChange = {(e)=>setJobDescription(e.target.value)}
                 />
             </div>
-            <div className='mt-7 my-2  text-purple-700'>
+            <div className='mt-2 my-2  text-purple-700'>
                 <label className='font-bold  text-purple-600'>Experience:</label>
                 <Select required 
                   onValueChange = {(e)=>setJobExperience(e)}
@@ -144,7 +146,7 @@ function AddNewInterview() {
                 onChange = {(e)=>setJobSalary(e.target.value)}
                 />
             </div>
-            <div className='mt-7 my-2  text-purple-700'>
+            <div className='mt-2 my-2  text-purple-700'>
                 <label className='font-bold  text-purple-600'>Company:</label>
                 <Select required
                   onValueChange = {(value)=>setJobCompany(value)}
@@ -166,22 +168,22 @@ function AddNewInterview() {
             
         </div>
         <div className="items-top flex space-x-2 text-purple-700">
-      <Checkbox id="terms1"/>
+      <Checkbox className='mt-1.5' id="terms1"/>
       <div className="grid gap-1.5 leading-none text-purple-700">
         <label
           htmlFor="terms1"
-          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
+          className="text-sm font-medium leading-none mt-2 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
         >
           Accept terms and conditions
         </label>
       </div>
     </div>
         <div className='flex gap-5 justify-end text-purple-700'>
-            <Button type="button" onClick={()=>setOpenDialog(false) }>Cancel</Button>
-            <Button type="submit" disabled={loading==true} >
+            <Button className='bg-purple-700 mt-5' type="button" onClick={()=>setOpenDialog(false) }>Cancel</Button>
+            <Button className='bg-purple-700 mt-5' type="submit" disabled={loading==true} >
               {loading?
               <>
-              <LoaderCircle className='animate-spin'/>Simulating Your Interview
+              <LoaderCircle className='animate-spin'/>Please Wait, Interview is Getting Started...
               </>:'Start Interview'  
             }
               </Button>

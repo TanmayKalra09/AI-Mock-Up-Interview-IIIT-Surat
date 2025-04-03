@@ -33,7 +33,7 @@ function Interview({ params }) {
 
   return (
     <div className="relative">
-      <div className="flex justify-between items-center p-1 shadow-md">
+      <div className="flex justify-between items-center p-1">
         <Logo />
         <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
         onClick={() => router.push('/premium')}>
@@ -41,7 +41,7 @@ function Interview({ params }) {
         </button>
       </div>
       <div className='my-10 flex items-center justify-center gap-40'>
-        <img src="/5148270_2701776 2.jpg" alt="Interview Illustration" className="w-1/3 max-w-sm object-contain ml-[-550px]" />
+        <img src="/Programming-rafiki.png" alt="Interview Illustration" className="w-1/3 max-w-sm object-contain ml-[-550px]" />
         <div className='flex flex-col items-center'>
           <h1 className='font-bold text-2xl mb-5 text-purple-700'>Let's Start Your Interview...</h1>
           
@@ -59,8 +59,8 @@ function Interview({ params }) {
             <Button className="mt-4 p-2 bg-purple-600  hover:bg-purple-700" onClick={()=>setWebCamEnabled(true)}>Enable Webcam and Microphone</Button>
           </div>
           <div className='absolute bottom-5 right-5'>
-            <p className="text-gray-600 text-sm mb-2">Whenever you are ready, just press the button to start the interview.</p>
-            <Button className="bg-purple-700 hover:bg-purple-800 transform translate-x-35" onClick={() => router.push('/dashboard/interview/'+params.interviewId+'/start')}>Start Interview</Button>
+            <p className="text-gray-600 text-sm mb-3">Whenever you are ready, just press the button to start the interview.</p>
+            <Button className="bg-purple-700 hover:bg-purple-800 transform mb-20 translate-x-35" onClick={() => router.push('/dashboard/interview/'+params.interviewId+'/start')}>Start Interview</Button>
           </div>
         </div>
       </div>
@@ -78,9 +78,11 @@ function Interview({ params }) {
           <p className="text-red-500">No interview data found.</p>
         )}
       </div>
-      <div className='p-5 border rounded-lg border-purple-100 bg-green-200'>
-        <h2 className='flex gap-2 items-center text-black'><Sun/><strong>Pro Tip!</strong></h2>
-        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minus blanditiis labore, a nulla sed possimus officiis laboriosam, ab tempore ratione ad sequi veniam quasi totam consequuntur, eaque minima quo.</h2>
+      <div className='absolute top-1/5 right-20 mt-6 w-1/4'>
+        <div className='p-5 border rounded-lg border-purple-100 bg-green-100'>
+          <h2 className='flex gap-2 items-center text-black mb-2'><Sun/><strong>Pro Tip!</strong></h2>
+          <h2>Maintain eye contact by looking at the camera, use natural gestures, and speak clearly at a moderate pace. Ensure good lighting, a quiet environment, and use headphones for better audio. Dress professionally to set the right mindset. Review AI feedback on tone, clarity, and response time to improve your performance.</h2>
+        </div>
       </div>
     </div>
   );

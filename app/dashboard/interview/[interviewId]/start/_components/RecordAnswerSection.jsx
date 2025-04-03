@@ -30,7 +30,7 @@ function RecordAnswerSection() {
 
   return (
     <div className='flex items-center justify-center flex-col'>
-        <div className ="flex flex-col mt-20 justify-center items-center bg-black rounded-lg p-5">
+        <div className ="flex flex-col mt-20 w-100 justify-center items-center bg-black rounded-lg p-5">
             <Image src={'/webcam-2.png'} width={200} height={200} className='absolute'/>
             <Webcam
             mirrored={true}

@@ -15,13 +15,13 @@ function QuestionSection({ mockIntvQues, activeQuestionIndex }) {
 
   return (
     mockIntvQues && (
-      <div className="p-5 border rounded-lg bg-purple-100 mx-auto mt-1 w-fit">
+      <div className="p-5 border ml-5 rounded-lg bg-purple-100 mx-auto mb-1 mt-5 w-200 ">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {mockIntvQues.map((ques, idx) => (
             <h2
-              key={idx} // ✅ Added key prop
+              key={idx} 
               className={`p-2 rounded-full text-xs md:text-sm text-center cursor-pointer mb-5 
-                ${activeQuestionIndex === idx ? 'bg-red-400 text-black' : 'bg-gray-200'}`}
+                ${activeQuestionIndex === idx ? 'bg-purple-700 text-white' : 'bg-gray-300 text-black'}`}
             >
               Questions No. #{idx + 1}
             </h2>
@@ -34,7 +34,7 @@ function QuestionSection({ mockIntvQues, activeQuestionIndex }) {
 
         <Ear className='cursor-pointer mt-2' onClick={()=>textToSpeechConvertor(mockIntvQues[activeQuestionIndex]?.Question)}/>
 
-        <div className='border rounded-lg p-5 bg-green-300 mt-20'>
+        <div className='border rounded-lg p-5 bg-green-100 mt-20'>
           <h2 className='flex gap-2 items-center text-black'>
             <Sun/>
             <strong>Pro Tip!</strong>

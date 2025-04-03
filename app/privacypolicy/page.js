@@ -8,9 +8,9 @@ export default function PrivacyPolicy() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#c5c8ff] text-gray-800">
+    <div className="min-h-screen flex flex-col text-gray-800">
       
-      <div className="h-20 flex justify-between items-center -md bg-[#c5c8ff] z-10">
+      <div className="h-20 flex justify-between items-center -md z-10">
         <Logo />
         <Button className="bg-purple-600 hover:bg-purple-700 mr-6 text-white px-4 py-2 rounded-lg" onClick={() => router.push('/')}>Back to Home</Button>
       </div>
@@ -42,7 +42,7 @@ export default function PrivacyPolicy() {
 
         <div className="w-1/2 flex justify-center items-center">
           <img 
-            src="/21742842_6491945.jpg" 
+            src="/Authentication-rafiki.png" 
             alt="Privacy Policy" 
             className="w-full h-auto object-cover"
           />
