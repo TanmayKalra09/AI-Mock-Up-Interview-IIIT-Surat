@@ -1,25 +1,35 @@
 "use client"
 import Logo from '@/app/_components/Logo';
 import { Button } from '@/components/ui/button';
-import { WebcamIcon } from 'lucide-react';
+import { Sun, WebcamIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import { useRouter } from "next/navigation";
+import { db } from '@/utils/db';
+import { MockInterview } from '@/utils/schema';
+import { eq } from 'drizzle-orm';
 
 
 function Interview({ params }) {
-  const [interviewData, setInterviewData] = useState(null);
+  const [interviewData, setInterviewData] = useState();
   const [webCamEnabled,setWebCamEnabled] = useState(false);
   const router = useRouter();
 
 
   useEffect(() => {
     console.log(params.interviewId)
+    GetInterviewDetails();
     const storedData = localStorage.getItem(`interview-${params.interviewId}`);
     if (storedData) {
       setInterviewData(JSON.parse(storedData));
     }
   }, [params.interviewId]);
+
+  const GetInterviewDetails = async() => {
+    const res = await db.select().from(MockInterview).where(eq(MockInterview.mockId,params.interviewId))
+    setInterviewData(res[0])
+    console.log(res);
+  }
 
   return (
     <div className="relative">
@@ -59,15 +69,18 @@ function Interview({ params }) {
         <h1 className="text-2xl font-bold text-purple-700 mb-4">Interview Details</h1>
         {interviewData ? (
           <div className="space-y-3">
-            <p><strong>Job Position:</strong> {jobPosition}</p>
-            <p><strong>Job Description:</strong> {jobDesc}</p>
-            <p><strong>Experience:</strong> {jobExperience} years</p>
-            <p><strong>Expected Salary:</strong> ₹{interviewData.expectedSalary} per annum</p>
-            <p><strong>Company:</strong> {interviewData.company}</p>
+            <p><strong>Job Position:</strong> {interviewData.jobPosition}</p>
+            <p><strong>Job Description:</strong> {interviewData.jobDesc}</p>
+            <p><strong>Job Experience:</strong> {interviewData.jobExperience} years</p>
+            <p><strong>Target Company:</strong> {interviewData.jobCompany}</p>
           </div>
         ) : (
           <p className="text-red-500">No interview data found.</p>
         )}
+      </div>
+      <div className='p-5 border rounded-lg border-purple-100 bg-green-200'>
+        <h2 className='flex gap-2 items-center text-black'><Sun/><strong>Pro Tip!</strong></h2>
+        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minus blanditiis labore, a nulla sed possimus officiis laboriosam, ab tempore ratione ad sequi veniam quasi totam consequuntur, eaque minima quo.</h2>
       </div>
     </div>
   );

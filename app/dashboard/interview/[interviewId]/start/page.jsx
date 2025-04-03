@@ -1,13 +1,32 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from "next/navigation"
 import Logo from '@/app/_components/Logo';
 import QuestionSection from './_components/QuestionSection';
 import RecordAnswerSection from './_components/RecordAnswerSection';
+import { db } from '@/utils/db';
+import { MockInterview } from '@/utils/schema';
+import { eq } from 'drizzle-orm';
 
-function StartInterview() {
+function StartInterview({params}) {
     const router = useRouter();
     const [activeQuestionIndex,setActiveQuestionIndex]= useState(0);
+    const [interviewData,setInterviewData] = useState();
+    const [mockIntvQues,setMockIntvQues] = useState();
+
+    useEffect(() => {
+        GetInterviewDetails();
+    },[]);
+
+    const GetInterviewDetails = async() => {
+        const res = await db.select().from(MockInterview).where(eq(MockInterview.mockId,params.interviewId))
+        const mockResponseJSON  = JSON.parse(res[0].jsonMockResp);
+        setInterviewData(res[0]);
+        setMockIntvQues(mockResponseJSON);
+        console.log(mockResponseJSON)
+      }
+
+
   return (
     <div>
        <div className="relative">
@@ -20,7 +39,10 @@ function StartInterview() {
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
         {/* Questions */}
-        <QuestionSection activeQuestionIndex={activeQuestionIndex}/>
+        <QuestionSection 
+        mockIntvQues={mockIntvQues}
+        activeQuestionIndex={activeQuestionIndex}
+        />
         <RecordAnswerSection/>
       </div>
       </div>

@@ -4,7 +4,7 @@ const {
     HarmBlockThreshold,
   } = require("@google/generative-ai");
   const fs = typeof window === "undefined" ? require("fs") : null;
-  const mime = require("mime-types");
+
   
   const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);
