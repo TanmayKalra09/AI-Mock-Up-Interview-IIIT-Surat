@@ -9,6 +9,10 @@ import Footer from "./_components/Footer";
 export default function Home() {
   const router = useRouter();
 
+  const handleGetStarted = () => {
+    router.push('/auth/signin');
+  };
+
   return (
     <div 
       className="h-screen flex flex-col relative overflow-hidden" 
@@ -51,7 +55,10 @@ export default function Home() {
             and increase your chances of landing your dream job. Get ready to impress and stand out from the competition.
           </p>
 
-          <Button className="mt-8 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 text-lg rounded-lg shadow-lg self-start">
+          <Button 
+            onClick={handleGetStarted}
+            className="mt-8 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 text-lg rounded-lg shadow-lg self-start"
+          >
             Get Started
           </Button>
 
