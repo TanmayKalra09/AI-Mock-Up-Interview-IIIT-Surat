@@ -12,12 +12,20 @@ function page() {
       <div className="h-screen flex flex-col">
         <div className="h-20 flex justify-between items-center bg-white/90 px-6 z-10">
           <Logo />
-          <Button 
-            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
-            onClick={() => router.push('/premium')}
-          >
-            Premium
-          </Button>
+          <div className="flex gap-4">
+            <Button 
+              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
+              onClick={() => router.push('/premium')}
+            >
+              Premium
+            </Button>
+            <Button 
+              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
+              onClick={() => router.push('/')}
+            >
+              Sign Out
+            </Button>
+          </div>
         </div>
         <div className="flex-grow p-10 flex  justify-between">
           <div>
