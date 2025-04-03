@@ -9,7 +9,7 @@ function page() {
   const router = useRouter();
   return (
     <div>
-      <div className="h-screen flex flex-col">
+      <div className="h-screen overflow-hidden flex flex-col">
         <div className="h-20 flex justify-between items-center bg-white/90 px-6 z-10">
           <Logo />
           <div className="flex gap-4">

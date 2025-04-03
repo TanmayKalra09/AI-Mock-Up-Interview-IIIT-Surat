@@ -99,7 +99,7 @@ function AddNewInterview() {
         onClick={()=>setOpenDialog(true)}>
             <h2 className='font-bold text-lg text-center text-purple-700'>+ Start your Mockup Interview</h2>
         </div>
-        <Dialog open={openDialog}>
+        <Dialog open={openDialog} onOpenChange={setOpenDialog}>
   <DialogContent className="bg-white w-full">
     <DialogHeader>
       <DialogTitle className="text-2xl text-purple-700">Tell us more about your Interview</DialogTitle>
@@ -179,8 +179,8 @@ function AddNewInterview() {
       </div>
     </div>
         <div className='flex gap-5 justify-end text-purple-700'>
-            <Button className='bg-purple-700 mt-5' type="button" onClick={()=>setOpenDialog(false) }>Cancel</Button>
-            <Button className='bg-purple-700 mt-5' type="submit" disabled={loading==true} >
+            <Button className='bg-purple-700 hover:bg-purple-900 mt-5' type="button" onClick={()=>setOpenDialog(false) }>Cancel</Button>
+            <Button className='bg-purple-700  hover:bg-purple-900 mt-5' type="submit" disabled={loading==true} >
               {loading?
               <>
               <LoaderCircle className='animate-spin'/>Please Wait, Interview is Getting Started...

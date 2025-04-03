@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen flex flex-col text-gray-800">
+    <div className="h-screen overflow-hidden flex flex-col text-gray-800">
       
       <div className="h-20 flex justify-between items-center -md z-10">
         <Logo />
