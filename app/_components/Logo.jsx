@@ -5,7 +5,7 @@ function Logo() {
   return (
     <div className="flex items-center gap-4 ml-8">
       <Image 
-        src="/3716790.png"  
+        src="/2944658_28388-removebg-preview.png"  
         alt="AI Mock Interview Logo" 
         width={80} 
         height={80} 
