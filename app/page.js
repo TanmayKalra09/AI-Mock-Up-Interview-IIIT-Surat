@@ -29,12 +29,7 @@ export default function Home() {
           >
             Premium
           </Button>
-          <Button 
-            className="bg-transparent border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-4 py-2 rounded-lg"
-            onClick={() => router.push('/dashboard')}
-          >
-            Dashboard
-          </Button>
+          
         </div>
       </div>
 
