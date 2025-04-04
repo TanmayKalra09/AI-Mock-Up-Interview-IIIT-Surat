@@ -9,7 +9,7 @@ function Footer() {
         <p className="text-sm">© 2025 AI Mock Interview. All rights reserved.</p>
         <div className="mt-2">
           <a href="#" className="text-sm hover:text-purple-300 mx-3" onClick={() => router.push('/privacypolicy')}>Privacy Policy</a>
-          <a href="#" className="text-sm hover:text-purple-300 mx-3" onClick={() => router.push('/terms&condition')}>Terms of Service</a>
+          <a href="#" className="text-sm hover:text-purple-300 mx-3" onClick={() => router.push('/terms&condition')}>Terms & Conditions</a>
           <a href="#" className="text-sm hover:text-purple-300 mx-3" onClick={() => router.push('/aboutus')}>About Us</a>
         </div>
       </div>

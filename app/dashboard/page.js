@@ -29,7 +29,9 @@ function page() {
         </div>
         <div className="flex-grow p-10 flex  justify-between">
           <div>
-            <h1 className="font-bold text-2xl text-purple-700">Dashboard</h1>
+            <h1 className="font-bold text-2xl text-black">
+              Welcome to your <span className="text-purple-700">Dashboard</span>
+            </h1>
             <h1 className='text-purple-600'>Create and Start your AI Mockup Interview</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-5">

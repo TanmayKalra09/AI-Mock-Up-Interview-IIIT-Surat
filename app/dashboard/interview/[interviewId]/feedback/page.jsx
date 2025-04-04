@@ -29,11 +29,11 @@ function Feedback() {
             <h2 className='text-red-500 p-2 border rounded-lg'><strong>Rating:</strong></h2>
             <h2 className='p-2 border rounded-lg bg-purple-50 text-sm text-purple-900'><strong>Your Answer:</strong></h2>
             <h2 className='p-2 border rounded-lg bg-green-50 text-sm text-green-900'><strong>Correct Answer:</strong></h2>
-            <h2 className='p-2 border rounded-lg bg-blue-50 text-sm text-blue-900'><strong>Correct Answer:</strong></h2>
+            <h2 className='p-2 border rounded-lg bg-blue-50 text-sm text-blue-900'><strong>Feedback:</strong></h2>
         </div>
         </CollapsibleContent>
         </Collapsible>
-        <Button onClick={()=>router.replace('/dashboard')} className='bg-purple-700'>Go Home</Button>
+        <Button onClick={()=>router.replace('/dashboard')} className='bg-purple-700 mt-5'>Go Home</Button>
 
     </div>
   )

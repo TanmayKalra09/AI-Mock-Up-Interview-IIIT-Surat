@@ -40,6 +40,16 @@ export default function SignIn() {
               />
               Continue with Google
             </Button>
+            <p className="text-center text-gray-600 text-sm">
+              Please visit our{" "}
+              <a href="/privacypolicy" className="text-purple-600 hover:underline">
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a href="/terms&condition" className="text-purple-600 hover:underline">
+                Terms & Conditions
+              </a>.
+            </p>
           </div>
         </div>
       </div>
