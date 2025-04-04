@@ -7,6 +7,7 @@ import RecordAnswerSection from './_components/RecordAnswerSection';
 import { db } from '@/utils/db';
 import { MockInterview } from '@/utils/schema';
 import { eq } from 'drizzle-orm';
+import { Button } from '@/components/ui/button';
 
 function StartInterview({params}) {
     const router = useRouter();
@@ -24,6 +25,7 @@ function StartInterview({params}) {
         setInterviewData(res[0]);
         setMockIntvQues(mockResponseJSON);
         console.log(mockResponseJSON)
+        console.log("Passing interviewData:", interviewData);
       }
 
 
@@ -42,8 +44,21 @@ function StartInterview({params}) {
         <QuestionSection 
         mockIntvQues={mockIntvQues}
         activeQuestionIndex={activeQuestionIndex}
+        interviewData={interviewData}
         />
-        <RecordAnswerSection/>
+        <RecordAnswerSection 
+          mockIntvQues={mockIntvQues}
+          activeQuestionIndex={activeQuestionIndex}
+          interviewData={interviewData}
+        />
+      </div>
+      <div className='flex justify-end gap-6 mt-20 mr-10'>
+       {activeQuestionIndex> 0  && 
+       <Button className='bg-purple-700 hover:bg-purple-900' onClick={()=>setActiveQuestionIndex(activeQuestionIndex-1)}>Previous Question</Button>} 
+        {activeQuestionIndex!=mockIntvQues?.length-1 && 
+        <Button className='bg-purple-700 hover:bg-purple-900'  onClick={()=>setActiveQuestionIndex(activeQuestionIndex+1)}>Next Question </Button>}
+        {activeQuestionIndex==mockIntvQues?.length-1 && 
+        <Button className='bg-purple-700 hover:bg-purple-900' >End Interview</Button>}
       </div>
       </div>
     </div>
