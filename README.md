@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Mock Interview Platform
 
-## Getting Started
+An AI-powered interview preparation platform that helps users practice and improve their interview skills through realistic mock interviews with instant feedback.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **AI-Powered Mock Interviews**: Practice with realistic interview questions tailored to specific roles
+- **Instant Feedback**: Receive detailed feedback on your responses in real-time
+- **MAANG Company Patterns**: Specialized interview patterns for top tech companies (Meta, Apple, Amazon, Netflix, Google)
+- **Premium Features**: Access to advanced interview patterns and detailed analytics
+- **Speech Recognition**: Practice speaking your answers with speech-to-text capabilities
+- **User Authentication**: Secure sign-in and user management
+- **Responsive Design**: Works seamlessly across all devices
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Authentication**: Next-auth
+- **Database**: Prisma with PostgreSQL
+- **AI Integration**: Google Generative AI
+- **UI Components**: Shadcn UI
+- **Speech Recognition**: React Hook Speech to Text
+- **Styling**: Tailwind CSS, Class Variance Authority
+
+## 📋 Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- PostgreSQL database
+
+## 🚀 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/ai-mock-interview.git
+   cd ai-mock-interview
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env` file in the root directory with the following variables:
+   ```
+    GOOGLE_CLIENT_ID=867139121052-hh5n9gj82s8pd6qrmkpekiq4neq3fes5.apps.googleusercontent.com
+    GOOGLE_CLIENT_SECRET=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
+    NEXTAUTH_URL=http://localhost:3000
+    NEXTAUTH_SECRET=abcdefg
+    DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+   ```
+
+   Create a `.env.local` file in the root directory with the following variables:
+   ```
+    NEXT_PUBLIC_NEON_URL = postgresql:/neondb_owner:npg_N1sXp5wIQMbz@ep-patient-firefly-a5n9yuiq-pooler.us-east-2.aws.neon.tech/ai-interview-mock?sslmode=require
+
+    NEXT_PUBLIC_GEMINI_API_KEY = AIzaSyABE8zYB2G8QijFpqczfjPWFI0d24WejMQ
+
+    NEXT_PUBLIC_INTERVIEW_PRO_TIP = Click on the Record button to start recording your answer. Make sure to speak clearly and confidently. Please do not use any external help or refer to notes while answering.
+   ```
+
+4. **Initialize the database**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
+
+5. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## 📁 Project Structure
+
+```
+├── app/                   # Next.js app directory
+│   ├── api/               # API routes
+│   ├── auth/              # Authentication pages
+│   ├── dashboard/         # User dashboard
+│   ├── fullstack/         # Fullstack interview patterns
+│   ├── premium/           # Premium features
+│   └── _components/       # Shared components
+├── components/            # UI components
+├── prisma/                # Database schema and migrations
+├── public/                # Static assets
+└── utils/                 # Utility functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 👥 Authors
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Shriyansh Goel 
+- Tanmay Kalra
+- Vaishnav Gupta
+- Saksham Agrawal
