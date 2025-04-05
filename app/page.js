@@ -51,7 +51,7 @@ export default function Home() {
           </p>
 
           <Button 
-            onClick={handleGetStarted}
+            onClick={() => router.push('/dashboard')}
             className="mt-8 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 text-lg rounded-lg shadow-lg self-start"
           >
             Get Started
