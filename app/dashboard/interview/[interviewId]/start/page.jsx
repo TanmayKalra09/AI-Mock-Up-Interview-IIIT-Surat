@@ -58,7 +58,7 @@ function StartInterview({params}) {
         {activeQuestionIndex!=mockIntvQues?.length-1 && 
         <Button className='bg-purple-700 hover:bg-purple-900'  onClick={()=>setActiveQuestionIndex(activeQuestionIndex+1)}>Next Question </Button>}
         {activeQuestionIndex==mockIntvQues?.length-1 && 
-        <Button className='bg-purple-700 hover:bg-purple-900' >End Interview</Button>}
+        <Button className='bg-purple-700 hover:bg-purple-900' onClick={() => router.push('/overallfeedback')} >End Interview</Button>}
       </div>
       </div>
     </div>
