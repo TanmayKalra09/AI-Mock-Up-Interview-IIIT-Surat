@@ -16,6 +16,11 @@ function RecordAnswerSection({ mockIntvQues, activeQuestionIndex, interviewData 
 
   const [userResponse,setUserResponse] = useState("");
 
+  // feedback and rating
+  const [feedback,setFeedback] = useState("");
+  const [rating,setRating] = useState(null);
+  
+
   const {
     error,
     interimResult,
@@ -29,25 +34,30 @@ function RecordAnswerSection({ mockIntvQues, activeQuestionIndex, interviewData 
   });
 
   useEffect(() => {
-    results.map((result) => (
-      setUserResponse(prevAns => prevAns + result?.transcript)
-    ))
+    if (results.length > 0) {
+      const latest = results[results.length - 1];
+      setUserResponse(latest?.transcript || "");
+    }
   },[results])
 
-  useEffect(()=>{
-    if(!isRecording&&userResponse.length>5){
-      UpdateUserAnswer();
-    }
-    
-  },[userResponse])
+  useEffect(() => {
+    setUserResponse('');
+    setFeedback('');
+    setRating(null);
+  }, [activeQuestionIndex]);
+
 
   const StartStopRecording=async()=>{
     if(isRecording){
       stopSpeechToText()
-    
+      toast("Recording Stopped, Click 'Evaluate Response' to get feedback")
+
 
     }
     else{
+      setUserResponse("");
+      setFeedback("");
+      setRating(null);
       startSpeechToText();
     }
 
@@ -61,33 +71,23 @@ function RecordAnswerSection({ mockIntvQues, activeQuestionIndex, interviewData 
       "please give us rating for answer in numbers out of 10 and feedback at area of improvement in just 2-3 lines.";
 
       const result=await chatSession.sendMessage(feedbackPrompt);
-      const mockJSONResponse = (await result.response.text())
-  .replace('```json','')
-  .replace('```','');
-      console.log(mockJSONResponse);
-      const JsonFeedbackResp=JSON.parse(mockJSONResponse);
 
-      try {
-        const resp = await db.insert(UserAnswer)
-          .values({
-            mockIdRef: interviewData?.id,
-            question: mockIntvQues[activeQuestionIndex]?.Question,
-            correctAns: mockIntvQues[activeQuestionIndex]?.Answer,
-            userAns: userResponse,
-            feedback: JsonFeedbackResp?.feedback,
-            rating: JsonFeedbackResp?.rating,
-            userEmail: "N/A",
-            createdAt: moment().format('DD-MM-yyyy'),
-          })
-          .execute();
-      
-        if (resp) {
-          toast('User Answer Recorded');
-        }
-      } catch (error) {
-        console.error('Database insertion error:', error);
-        toast('Failed to save answer. Check console.');
-      }
+      const aiResponse = await result.response.text();
+      console.log("Raw AI Response:", aiResponse);
+
+      // Extract rating
+      const ratingMatch = aiResponse.match(/\*\*Rating:\*\*\s*(\d{1,2})\/10/i);
+      const extractedRating = ratingMatch ? parseInt(ratingMatch[1]) : null;
+
+
+        // Extract feedback
+        const feedbackMatch = aiResponse.match(/Feedback.*?:\s*\n*([\s\S]*)/i);
+        let extractedFeedback = feedbackMatch ? feedbackMatch[1].trim() : "No feedback found.";
+        
+        extractedFeedback = extractedFeedback.replace(/\*\*/g, '');
+
+      setFeedback(extractedFeedback);
+      setRating(extractedRating);
       setUserResponse('');
       setLoading(false);
 
@@ -114,7 +114,27 @@ function RecordAnswerSection({ mockIntvQues, activeQuestionIndex, interviewData 
           </h2>
         :
         "Record Response"}</Button>
-       <Button onClick={()=>console.log(userResponse)}>Show Answer</Button>
+       <Button onClick={()=> {
+        if(userResponse.length<6){
+          toast.error("Please record a valid answer before evaluating.");
+        }
+        else{
+          UpdateUserAnswer();
+        }
+       }
+
+       }
+        >
+          Evaluate Response
+        </Button>
+       {feedback&&(
+        <div className='mt-6 p-4 bg-gray-100 rounded-lg shadow-md w-full max-w-xl text-left'>
+            <h3 className='text-lg font-semibold mb-2'>Evaluation Results: </h3>
+            <p className="mb-2"><strong>Rating:</strong> {rating} / 10</p>
+            <p><strong>AI Feedback:</strong> {feedback}</p>
+        </div>
+       )
+       }
     </div>
     
   )
