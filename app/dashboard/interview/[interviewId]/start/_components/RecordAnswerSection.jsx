@@ -4,7 +4,7 @@ import Webcam from 'react-webcam'
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import useSpeechToText from 'react-hook-speech-to-text';
-import { Mic } from 'lucide-react';
+import { Mic, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { chatSession } from '@/utils/GeminiAIModel';
 import { UserAnswer } from '@/utils/schema';
@@ -94,8 +94,8 @@ function RecordAnswerSection({ mockIntvQues, activeQuestionIndex, interviewData 
   }
 
   return (
-    <div className='flex items-center justify-center flex-col'>
-        <div className ="flex flex-col mt-20 w-100 justify-center items-center bg-black rounded-lg p-5">
+    <div className='flex items-center justify-center mb-20 flex-col'>
+        <div className ="flex flex-col w-100 justify-center items-center bg-black rounded-lg p-5">
             <Image src={'/webcam-2.png'} width={200} height={200} className='absolute'/>
             <Webcam
             mirrored={true}
@@ -105,7 +105,7 @@ function RecordAnswerSection({ mockIntvQues, activeQuestionIndex, interviewData 
         </div>
         <Button 
         disabled={loading}
-        variant="outline" className="my-10"
+        variant="outline" className="my-10 mt-5 mb-5 border border-purple-700 text-purple-700 hover:bg-purple-200"
           onClick={StartStopRecording}
         >
           {isRecording ?
@@ -114,7 +114,7 @@ function RecordAnswerSection({ mockIntvQues, activeQuestionIndex, interviewData 
           </h2>
         :
         "Record Response"}</Button>
-       <Button onClick={()=> {
+       <Button className="bg-purple-700 hover:bg-purple-900" onClick={()=> {
         if(userResponse.length<6){
           toast.error("Please record a valid answer before evaluating.");
         }
@@ -125,10 +125,17 @@ function RecordAnswerSection({ mockIntvQues, activeQuestionIndex, interviewData 
 
        }
         >
-          Evaluate Response
+          {loading ? (
+            <span className="flex items-center gap-2">
+              <Loader2 className="h-5 w-5 animate-spin" />
+              Evaluating you Answer...
+            </span>
+          ) : (
+            "Evaluate Response"
+          )}
         </Button>
        {feedback&&(
-        <div className='mt-6 p-4 bg-gray-100 rounded-lg shadow-md w-full max-w-xl text-left'>
+        <div className='mt-6 p-4 ml-10 bg-gray-100 rounded-lg shadow-md w-full max-w-xl text-left'>
             <h3 className='text-lg font-semibold mb-2'>Evaluation Results: </h3>
             <p className="mb-2"><strong>Rating:</strong> {rating} / 10</p>
             <p><strong>AI Feedback:</strong> {feedback}</p>

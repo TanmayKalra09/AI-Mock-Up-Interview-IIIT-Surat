@@ -116,7 +116,7 @@ function AddNewInterview() {
             </div>
             <div className='mt-2 my-2'>
                 <label className='font-bold  text-purple-700' >Tech Stack (In Short)</label>
-                <Textarea placeholder="Ex: React, Nextjs, MongoDB etc (Mention Atleast 3 of your Skills)" className="mt-1 text-purple-600" required 
+                <Textarea placeholder="Ex: React, Nextjs, MongoDB etc (Mention 3-4 of your Skills)" className="mt-1 text-purple-600" required 
                   onChange = {(e)=>setJobDescription(e.target.value)}
                 />
             </div>

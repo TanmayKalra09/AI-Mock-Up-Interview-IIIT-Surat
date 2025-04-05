@@ -15,7 +15,7 @@ function QuestionSection({ mockIntvQues, activeQuestionIndex }) {
 
   return (
     mockIntvQues && (
-      <div className="p-5 border ml-5 rounded-lg bg-purple-100 mx-auto mb-1 mt-5 w-200 ">
+      <div className="p-5 border ml-5 rounded-lg bg-purple-100 mx-auto h-150 w-[800px] ">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {mockIntvQues.map((ques, idx) => (
             <h2
@@ -23,7 +23,7 @@ function QuestionSection({ mockIntvQues, activeQuestionIndex }) {
               className={`p-2 rounded-full text-xs md:text-sm text-center cursor-pointer mb-5 
                 ${activeQuestionIndex === idx ? 'bg-purple-700 text-white' : 'bg-gray-300 text-black'}`}
             >
-              Questions No. #{idx + 1}
+              Questions No. {idx + 1}
             </h2>
           ))}
         </div>
