@@ -95,7 +95,7 @@ An AI-powered interview preparation platform that helps users practice and impro
 
 ## 👥 Authors
 
-- Shriyansh Goel 
 - Tanmay Kalra
+- Shriyansh Goel
 - Vaishnav Gupta
 - Saksham Agrawal
