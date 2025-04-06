@@ -78,7 +78,7 @@ An AI-powered interview preparation platform that helps users practice and impro
 6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
 ## 🌐 Deployed Website
- [https://ai-mock-up-interview-iiit-surat.vercel.app/](https://ai-mock-up-interview-iiit-surat.vercel.app/)
+ [https://team-mavericks-ai-mock.vercel.app/](https://team-mavericks-ai-mock.vercel.app/)
 
 ## 📁 Project Structure
 
