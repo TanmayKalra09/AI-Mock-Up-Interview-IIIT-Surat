@@ -12,6 +12,10 @@ function page() {
 
   useEffect(() => {
     const ensureAuthenticated = async () => {
+      if (!supabase) {
+        console.error("Supabase client not initialized. Please check environment variables.");
+        return;
+      }
       const { data } = await supabase.auth.getSession();
       if (!data?.session) {
         router.replace("/");
@@ -22,6 +26,10 @@ function page() {
   }, [router]);
 
   const handleSignOut = async () => {
+    if (!supabase) {
+      console.error("Supabase client not initialized. Please check environment variables.");
+      return;
+    }
     await supabase.auth.signOut();
     router.replace("/");
   };

@@ -13,6 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     const checkSession = async () => {
+      if (!supabase) return;
       const { data } = await supabase.auth.getSession();
       if (data?.session) {
         router.replace("/dashboard");
@@ -22,6 +23,10 @@ export default function Home() {
   }, [router]);
 
   const handleGoogleSignIn = async () => {
+    if (!supabase) {
+      console.error("Supabase client not initialized. Please check environment variables.");
+      return;
+    }
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
