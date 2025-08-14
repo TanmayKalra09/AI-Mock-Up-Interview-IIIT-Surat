@@ -5,12 +5,35 @@ import Image from "next/image";
 import Logo from "./_components/Logo";
 import { useRouter } from "next/navigation";
 import Footer from "./_components/Footer";
+import { supabase } from "@/utils/supabaseClient";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
 
-  const handleGetStarted = () => {
-    router.push('/auth/signin');
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data?.session) {
+        router.replace("/dashboard");
+      }
+    };
+    checkSession();
+  }, [router]);
+
+  const handleGoogleSignIn = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/dashboard`,
+        queryParams: {
+          prompt: "select_account",
+        },
+      },
+    });
+    if (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -50,8 +73,8 @@ export default function Home() {
             and increase your chances of landing your dream job. Get ready to impress and stand out from the competition.
           </p>
 
-          <Button 
-            onClick={() => router.push('/dashboard')}
+          <Button
+            onClick={handleGoogleSignIn}
             className="mt-8 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 text-lg rounded-lg shadow-lg self-start"
           >
             Get Started
