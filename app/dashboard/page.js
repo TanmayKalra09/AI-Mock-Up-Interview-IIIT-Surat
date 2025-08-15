@@ -1,12 +1,38 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AddNewInterview from './_components/AddNewInterview'
 import Logo from '../_components/Logo'
 import { Button } from '@/components/ui/button'
 import { useRouter } from "next/navigation";
+import { supabase } from "@/utils/supabaseClient";
 
 function page() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const ensureAuthenticated = async () => {
+      if (!supabase) {
+        console.error("Supabase client not initialized. Please check environment variables.");
+        return;
+      }
+      const { data } = await supabase.auth.getSession();
+      if (!data?.session) {
+        router.replace("/");
+      }
+      setLoading(false);
+    };
+    ensureAuthenticated();
+  }, [router]);
+
+  const handleSignOut = async () => {
+    if (!supabase) {
+      console.error("Supabase client not initialized. Please check environment variables.");
+      return;
+    }
+    await supabase.auth.signOut();
+    router.replace("/");
+  };
   return (
     <div>
       <div className="h-screen overflow-hidden flex flex-col">
@@ -21,13 +47,16 @@ function page() {
             </Button>
             <Button 
               className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
-              onClick={() => router.push('/')}
+              onClick={handleSignOut}
             >
               Sign Out
             </Button>
           </div>
         </div>
         <div className="flex-grow p-10 flex  justify-between">
+          {loading ? (
+            <div className="text-black">Loading...</div>
+          ) : (
           <div>
             <h1 className="font-bold text-2xl text-black">
               Welcome to your <span className="text-purple-700">Dashboard</span>
@@ -38,6 +67,7 @@ function page() {
               <AddNewInterview/>
             </div>
           </div>
+          )}
           <img 
             src="/2456062 2.jpg" 
             alt="AI Mock Interview" 

@@ -102,3 +102,31 @@ An AI-powered interview preparation platform that helps users practice and impro
 - Shriyansh Goel
 - Vaishnav Gupta
 - Saksham Agrawal
+
+## 🔐 Google Auth with Supabase
+
+If you are using Supabase OAuth (current setup), you do not place `GOOGLE_CLIENT_ID` or `GOOGLE_CLIENT_SECRET` in this app. Instead:
+
+- Configure Google in Supabase Dashboard → Auth → Providers → Google
+  - Create Google OAuth credentials in Google Cloud Console (type: Web application)
+  - Authorized redirect URI: `https://<your-project-ref>.supabase.co/auth/v1/callback`
+  - Paste the Google Client ID/Secret into Supabase
+- Set these app env vars in `.env.local`:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+Optional (only if you later switch to NextAuth):
+
+```env
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+```
+
+During local dev, also add your site URL to Supabase Auth settings (Site URL or Additional Redirect URLs):
+
+```
+http://localhost:3000
+```
