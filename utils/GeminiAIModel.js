@@ -6,7 +6,8 @@ const {
   const fs = typeof window === "undefined" ? require("fs") : null;
 
   
-  const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+  // Hardcoded Gemini API key for Vercel deployment
+  const apiKey = "AIzaSyABE8zYB2G8QijFpqczfjPWFI0d24WejMQ";
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({

@@ -39,7 +39,7 @@ function QuestionSection({ mockIntvQues, activeQuestionIndex }) {
             <Sun/>
             <strong>Pro Tip!</strong>
           </h2>
-          <h2>{process.env.NEXT_PUBLIC_INTERVIEW_PRO_TIP}</h2>
+          <h2>Click on the Record button to start recording your answer. Make sure to speak clearly and confidently. Please do not use any external help or refer to notes while answering.</h2>
         </div>
 
       </div>
