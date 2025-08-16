@@ -5,10 +5,12 @@ import Logo from '../_components/Logo'
 import { Button } from '@/components/ui/button'
 import { useRouter } from "next/navigation";
 import { supabase } from "@/utils/supabaseClient";
+import DSAPractice from './_components/DSAPractice'
 
 function page() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [showDSAPractice, setShowDSAPractice] = useState(false);
 
   useEffect(() => {
     const ensureAuthenticated = async () => {
@@ -41,6 +43,12 @@ function page() {
           <div className="flex gap-4">
             <Button 
               className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
+              onClick={() => setShowDSAPractice(!showDSAPractice)}
+            >
+              {showDSAPractice ? 'Back to Dashboard' : 'DSA Practice'}
+            </Button>
+            <Button 
+              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg cursor-pointer"
               onClick={() => router.push('/premium')}
             >
               Premium
@@ -53,26 +61,30 @@ function page() {
             </Button>
           </div>
         </div>
-        <div className="flex-grow p-10 flex  justify-between">
+        <div className="flex-grow p-10">
           {loading ? (
             <div className="text-black">Loading...</div>
+          ) : showDSAPractice ? (
+            <DSAPractice />
           ) : (
-          <div>
-            <h1 className="font-bold text-2xl text-black">
-              Welcome to your <span className="text-purple-700">Dashboard</span>
-            </h1>
-            <h1 className='text-purple-600'>Create and Start your AI Mockup Interview</h1>
+            <div className="flex justify-between">
+              <div>
+                <h1 className="font-bold text-2xl text-black">
+                  Welcome to your <span className="text-purple-700">Dashboard</span>
+                </h1>
+                <h1 className='text-purple-600'>Create and Start your AI Mockup Interview</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-5">
-              <AddNewInterview/>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-5">
+                  <AddNewInterview/>
+                </div>
+              </div>
+              <img 
+                src="/2456062 2.jpg" 
+                alt="AI Mock Interview" 
+                className="w-1/2 h-auto object-cover my-10 mt-[-50px] mr-10 flex justify-center"
+              />
             </div>
-          </div>
           )}
-          <img 
-            src="/2456062 2.jpg" 
-            alt="AI Mock Interview" 
-            className="w-1/2 h-auto object-cover my-10 mt-[-50px] mr-10 flex justify-center"
-          />
         </div>
       </div>
     </div>
