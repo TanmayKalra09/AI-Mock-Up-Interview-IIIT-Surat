@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "AI Mock Interview by Team Mavericks",
+  title: "Dev Drills",
   description: "AI Mock Interview by Team Mavericks",
 };
 
@@ -21,8 +21,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/2944658_28388-removebg-preview.png" type="image/png"/>
-        <title>AI Mock Interview by Team Mavericks</title>
+        <link rel="icon" href="/Blue_Modern_Technology_and_Software_Company_Logo__1_-removebg-preview.png" type="image/png"/>
+        <title>Dev Drills</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
