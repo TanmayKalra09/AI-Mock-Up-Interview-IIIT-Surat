@@ -40,7 +40,6 @@ function page() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-100">
-      {/* Header */}
       <div className="bg-white/80 backdrop-blur-lg border-b border-purple-100 shadow-sm sticky top-0">
         <div className="max-w-7xl mx-auto px-6 py-2">
           <div className="flex justify-between items-center">
@@ -80,7 +79,6 @@ function page() {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         {loading ? (
           <div className="flex items-center justify-center h-64">
@@ -93,7 +91,6 @@ function page() {
           <DSAPractice />
         ) : (
           <div className="space-y-8">
-            {/* Welcome Section */}
             <div className="text-center space-y-4">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                 Welcome to your{' '}
@@ -106,9 +103,7 @@ function page() {
               </p>
             </div>
 
-            {/* Main Action Cards */}
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {/* Mock Interview Card */}
               <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-purple-100 hover:border-purple-200">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-purple-800/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10">
@@ -127,7 +122,6 @@ function page() {
                 </div>
               </div>
 
-              {/* DSA Practice Card */}
               <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-purple-100 hover:border-purple-200">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-purple-800/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10">
@@ -152,7 +146,6 @@ function page() {
               </div>
             </div>
 
-            {/* Stats or Features Section */}
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-purple-100 max-w-4xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="text-center">
